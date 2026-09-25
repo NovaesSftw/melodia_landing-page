@@ -36,7 +36,6 @@ Landing page do app de músicas **Melodia**, desenvolvida para o **Check-Point 0
 - [Organização dos arquivos](#organização-dos-arquivos)
 - [Interações em JavaScript](#interações-em-javascript)
 - [Como executar localmente](#como-executar-localmente)
-- [Deploy no GitHub Pages](#deploy-no-github-pages)
 - [Formulário: coletando e-mails de verdade](#formulário-coletando-e-mails-de-verdade)
 - [Testes realizados](#testes-realizados)
 - [Créditos](#créditos)
@@ -84,7 +83,7 @@ Funcionalidades altera o som em tempo real com a Web Audio API.
 | Responsividade | Mobile-first com `sm:`, `md:`, `lg:` e `xl:`; menu hambúrguer no celular | todas as seções |
 | Áudios sem copyright | 4 faixas em domínio público do acervo FreePD | `assets/audio/` |
 | Biblioteca JavaScript (opcional) | Optamos por APIs nativas do navegador (IntersectionObserver, Web Audio e Media Session), sem dependências | `assets/js/` |
-| Publicação no GitHub Pages | Site estático pronto para deploy, sem etapa de build no servidor | ver [Deploy](#deploy-no-github-pages) |
+| Publicação no GitHub Pages | Site estático publicado a partir da branch `main` | [novaessftw.github.io/melodia_landing-page](https://novaessftw.github.io/melodia_landing-page/) |
 | README | Este arquivo | `README.md` |
 
 ---
@@ -206,31 +205,6 @@ Antes de publicar, gere a versão final minificada:
 ```bash
 npm run build
 ```
-
----
-
-## Deploy no GitHub Pages
-
-1. Crie um repositório **público** no GitHub, por exemplo `melodia-landing-page`.
-2. Na pasta do projeto, envie os arquivos:
-
-   ```bash
-   git init
-   git add .
-   git commit -m "Landing page Melodia - Check-Point 05"
-   git branch -M main
-   git remote add origin https://github.com/NovaesSftw/melodia_landing-page.git
-   git push -u origin main
-   ```
-
-3. No repositório, abra **Settings → Pages**. Em *Build and deployment*, escolha **Deploy from a branch**,
-   selecione a branch **main** e a pasta **/ (root)**, e clique em **Save**.
-4. Em cerca de 1 minuto o site fica disponível em https://novaessftw.github.io/melodia_landing-page/.
-5. Entregue o link do site e do repositório no Teams.
-
-> O `assets/css/style.css` já compilado vai junto no repositório, então o GitHub Pages não precisa rodar
-> nenhum build. A pasta `node_modules` fica de fora (está no `.gitignore`), e o arquivo vazio `.nojekyll`
-> avisa o GitHub Pages para publicar os arquivos exatamente como estão, sem processá-los com o Jekyll.
 
 ---
 
