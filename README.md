@@ -258,15 +258,13 @@ A partir daí, o `form.js` envia os dados com `fetch()` e os e-mails chegam no p
 
 ## Integrantes do grupo
 
-| Nome | RM | GitHub |
-|---|---|---|
-| _Nome completo_ | _RM00000_ | _@usuario_ |
-| _Nome completo_ | _RM00000_ | _@usuario_ |
-| _Nome completo_ | _RM00000_ | _@usuario_ |
-| _Nome completo_ | _RM00000_ | _@usuario_ |
-| _Nome completo_ | _RM00000_ | _@usuario_ |
-
-<sub>Grupos de até 5 pessoas: apaguem as linhas que sobrarem.</sub>
+| Nome | RM |
+|---|---|
+| Leonardo Novaes | 570991 |
+| Maria Eduarda | 573097 |
+| Enzo Biagiotti | 568894 |
+| Heitor Ortiz | 569762 |
+| Paulo Ricardo | 569992 |
 
 **Disciplina:** Front-end Design · Engenharia de Software
 **Professor:** Lucas Sousa
