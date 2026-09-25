@@ -16,8 +16,8 @@ Landing page do app de músicas **Melodia**, desenvolvida para o **Check-Point 0
 ![Google Fonts](https://img.shields.io/badge/Google_Fonts-4285F4?logo=googlefonts&logoColor=white)
 ![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-222222?logo=githubpages&logoColor=white)
 
-**🔗 Acesse o site:** https://novaessftw.github.io/melodia-landing-page/
-<sub>Repositório: https://github.com/NovaesSftw/melodia-landing-page</sub>
+**🔗 Acesse o site:** https://novaessftw.github.io/melodia_landing-page/
+<sub>Repositório: https://github.com/NovaesSftw/melodia_landing-page</sub>
 
 <img src="docs/preview-desktop.jpg" width="760" alt="Prévia da landing page do Melodia no computador">
 &nbsp;
@@ -219,13 +219,13 @@ npm run build
    git add .
    git commit -m "Landing page Melodia - Check-Point 05"
    git branch -M main
-   git remote add origin https://github.com/NovaesSftw/melodia-landing-page.git
+   git remote add origin https://github.com/NovaesSftw/melodia_landing-page.git
    git push -u origin main
    ```
 
 3. No repositório, abra **Settings → Pages**. Em *Build and deployment*, escolha **Deploy from a branch**,
    selecione a branch **main** e a pasta **/ (root)**, e clique em **Save**.
-4. Em cerca de 1 minuto o site fica disponível em https://novaessftw.github.io/melodia-landing-page/.
+4. Em cerca de 1 minuto o site fica disponível em https://novaessftw.github.io/melodia_landing-page/.
 5. Entregue o link do site e do repositório no Teams.
 
 > O `assets/css/style.css` já compilado vai junto no repositório, então o GitHub Pages não precisa rodar
