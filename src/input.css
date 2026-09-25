@@ -1,0 +1,452 @@
+/* =============================================================================
+   MELODIA · Landing Page — CSS fonte
+   -----------------------------------------------------------------------------
+   Este arquivo é processado pelo Tailwind CSS v4 (CLI) e gera o CSS final em
+   assets/css/style.css (minificado). Não edite o style.css diretamente.
+
+     npm run dev    → recompila automaticamente a cada alteração (watch)
+     npm run build  → gera a versão final minificada para o deploy
+
+   Organização
+     1. Tailwind + tema (design tokens)
+     2. Variante customizada "playing:"
+     3. Estilos base
+     4. Componentes reutilizáveis (botões, cards, ícones, campos)
+     5. CSS3 customizado: elementos musicais, efeitos e animações
+     6. Acessibilidade: movimento reduzido
+   ========================================================================== */
+
+
+/* 1. TAILWIND + TEMA ======================================================== */
+@import "tailwindcss";
+
+/* Tudo que é declarado em @theme vira classe utilitária.
+   Ex.: --color-ink-900 → bg-ink-900, text-ink-900, border-ink-900...        */
+@theme {
+  /* Tipografia (Google Fonts) */
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque", "DM Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* Neutros escuros ("ink"): base da interface, ~60% da tela */
+  --color-ink-950: #07060e;
+  --color-ink-900: #0c0a17;
+  --color-ink-850: #110e1f;
+  --color-ink-800: #181430;
+  --color-ink-700: #241e40;
+
+  /* Tons de texto ("mist") */
+  --color-mist-50: #f7f5ff;
+  --color-mist-100: #ebe7fb;
+  --color-mist-300: #c5bfdc;
+  --color-mist-400: #9d96bb;
+
+  /* Cor principal da marca: magenta vibrante (apoio: violet e orange do Tailwind) */
+  --color-brand-300: #ff9ad8;
+  --color-brand-400: #ff5cc2;
+  --color-brand-500: #f72ba8;
+  --color-brand-600: #d6168e;
+  --color-brand-700: #a80e70;
+
+  /* Animações → classes animate-float e animate-spin-slow */
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-spin-slow: spin 16s linear infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+}
+
+
+/* 2. VARIANTE CUSTOMIZADA =================================================== */
+/* O player (player.js) adiciona a classe .is-playing no <body> enquanto a
+   música toca. Com esta variante, qualquer elemento pode reagir no HTML:
+   ex.: class="scale-95 playing:scale-100"                                    */
+@custom-variant playing (&:where(.is-playing, .is-playing *));
+
+
+/* 3. ESTILOS BASE =========================================================== */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-ink-900 font-sans text-mist-300 antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display text-mist-50;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    @apply bg-brand-500 text-white;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-4 outline-brand-400;
+  }
+
+  /* Compensa o header fixo ao navegar por âncoras (#secao) */
+  [id] {
+    scroll-margin-top: 5.5rem;
+  }
+}
+
+
+/* 4. COMPONENTES ============================================================ */
+@layer components {
+  /* Botões ---------------------------------------------------------------- */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-3 rounded-full bg-linear-to-r from-violet-600 to-brand-600 px-7 py-3.5 font-semibold text-white shadow-lg shadow-brand-600/25 transition duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand-600/40 active:translate-y-0 disabled:pointer-events-none disabled:opacity-70;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-3 rounded-full border border-white/15 bg-white/5 px-7 py-3.5 font-semibold text-mist-50 backdrop-blur transition duration-300 hover:border-white/30 hover:bg-white/10;
+  }
+
+  /* Rótulo acima dos títulos de seção --------------------------------------- */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-brand-400/25 bg-brand-500/10 px-4 py-1.5 text-sm font-semibold text-brand-300;
+  }
+
+  /* Ícone em destaque: mesmo estilo para todos os benefícios/funcionalidades */
+  .icon-badge {
+    @apply grid size-14 shrink-0 place-items-center rounded-2xl bg-linear-to-br from-violet-500/25 to-brand-500/25 text-2xl text-brand-300 ring-1 ring-white/10 ring-inset transition duration-300;
+  }
+
+  /* Cartão padrão ----------------------------------------------------------- */
+  .card {
+    @apply rounded-3xl border border-white/10 bg-white/3 p-7 transition duration-300 hover:border-white/20 hover:bg-white/5;
+  }
+
+  /* Texto com gradiente da marca -------------------------------------------- */
+  .text-gradient {
+    @apply bg-linear-to-r from-violet-300 via-brand-400 to-orange-300 bg-clip-text text-transparent;
+  }
+
+  /* Campos do formulário ---------------------------------------------------- */
+  .field {
+    @apply w-full rounded-2xl border border-white/10 bg-ink-950/70 px-4 py-3.5 text-mist-50 transition outline-none placeholder:text-mist-400 focus:border-brand-400 focus:ring-4 focus:ring-brand-500/20 aria-[invalid=true]:border-rose-400 aria-[invalid=true]:ring-rose-500/20;
+  }
+
+  .field-label {
+    @apply mb-2 block text-sm font-semibold text-mist-100;
+  }
+
+  .field-error {
+    @apply mt-2 flex items-center gap-1.5 text-sm text-rose-300;
+  }
+
+  /* Links do menu (o JS marca o link da seção visível com aria-current) ---- */
+  .nav-link {
+    @apply rounded-full px-4 py-2 text-sm font-medium text-mist-300 transition hover:bg-white/5 hover:text-mist-50 aria-[current=true]:bg-white/10 aria-[current=true]:text-mist-50;
+  }
+
+  /* Texto longo da Política de Privacidade --------------------------------- */
+  .legal-content {
+    @apply leading-relaxed text-mist-300;
+  }
+
+  .legal-content > section + section {
+    @apply mt-12;
+  }
+
+  .legal-content section > * + * {
+    @apply mt-4;
+  }
+
+  .legal-content h2 {
+    @apply text-2xl font-bold text-mist-50;
+  }
+
+  .legal-content ul {
+    @apply list-disc space-y-2 pl-6 marker:text-brand-400;
+  }
+
+  .legal-content a {
+    @apply font-semibold text-brand-300 underline decoration-brand-300/40 underline-offset-4 hover:decoration-brand-300;
+  }
+
+  .legal-content strong {
+    @apply font-semibold text-mist-100;
+  }
+}
+
+
+/* 5. CSS3 CUSTOMIZADO ======================================================= */
+@layer components {
+
+  /* 5.1 Animação de entrada ao rolar (o JS adiciona .is-visible) ----------- */
+  /* Só esconde se houver JavaScript (classe .js no <html>): sem JS, tudo aparece. */
+  .js .reveal:not(.is-visible) {
+    opacity: 0;
+  }
+
+  .js .reveal.is-visible {
+    animation: reveal-up 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) var(--delay, 0s) both;
+  }
+
+  @keyframes reveal-up {
+    from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  /* 5.2 Equalizador animado (elemento musical recorrente) ------------------ */
+  .equalizer {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 2px;
+    height: 0.9em;
+  }
+
+  .equalizer > span {
+    width: 3px;
+    height: 100%;
+    border-radius: 2px;
+    background: currentColor;
+    transform-origin: bottom;
+    transform: scaleY(0.35);
+    animation: eq-bounce 1s ease-in-out infinite paused;
+  }
+
+  .equalizer > span:nth-child(2) { animation-delay: -0.45s; }
+  .equalizer > span:nth-child(3) { animation-delay: -0.2s; }
+  .equalizer > span:nth-child(4) { animation-delay: -0.7s; }
+
+  .equalizer.is-live > span,
+  .is-playing .equalizer > span {
+    animation-play-state: running;
+  }
+
+  @keyframes eq-bounce {
+    0%, 100% { transform: scaleY(0.3); }
+    50% { transform: scaleY(1); }
+  }
+
+  /* Barras do logo: "dançam" enquanto a música toca */
+  .logo-bar {
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+  .is-playing .logo-bar {
+    animation: eq-bounce 0.9s ease-in-out infinite;
+  }
+
+  .is-playing .logo-bar:nth-child(2) { animation-delay: -0.3s; }
+  .is-playing .logo-bar:nth-child(3) { animation-delay: -0.6s; }
+  .is-playing .logo-bar:nth-child(4) { animation-delay: -0.15s; }
+  .is-playing .logo-bar:nth-child(5) { animation-delay: -0.45s; }
+
+  /* 5.3 Disco de vinil feito só com gradientes CSS3 ------------------------ */
+  .vinyl {
+    border-radius: 9999px;
+    background:
+      radial-gradient(circle, var(--color-ink-950) 0 2.5%, transparent 2.8%),
+      radial-gradient(circle, transparent 0 15%, rgb(0 0 0 / 0.55) 15.4% 16.2%, transparent 16.6%),
+      repeating-radial-gradient(circle, #17131f 0 1.5px, #2a2438 2px 3.5px);
+    box-shadow:
+      0 40px 90px -30px rgb(0 0 0 / 0.9),
+      inset 0 0 0 1px rgb(255 255 255 / 0.14),
+      inset 0 0 0 12px #14111b;
+    animation: spin 16s linear infinite paused;
+  }
+
+  .is-playing .vinyl {
+    animation-play-state: running;
+  }
+
+  /* Selo central do disco (gira junto: por isso tem um detalhe assimétrico) */
+  .vinyl-label {
+    position: absolute;
+    inset: 34%;
+    border-radius: 9999px;
+    background:
+      radial-gradient(circle at 50% 22%, rgb(255 255 255 / 0.9) 0 4%, transparent 4.5%),
+      conic-gradient(from 200deg, var(--color-violet-600), var(--color-brand-500), var(--color-orange-400), var(--color-violet-600));
+  }
+
+  /* Brilho que NÃO gira (fica por cima), como a luz refletida num disco real */
+  .vinyl-sheen {
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: conic-gradient(from 20deg, transparent 0 8%, rgb(255 255 255 / 0.16) 14%, transparent 22% 58%, rgb(255 255 255 / 0.1) 64%, transparent 72%);
+    pointer-events: none;
+  }
+
+  /* 5.4 Mockup do celular: cor ambiente muda suavemente a cada faixa ------- */
+  .phone {
+    box-shadow:
+      0 0 0 1px rgb(255 255 255 / 0.1),
+      0 50px 100px -30px rgb(0 0 0 / 0.95),
+      0 0 140px -30px var(--track-color);
+    transition: --track-color 0.9s ease;
+  }
+
+  .phone-screen {
+    background:
+      radial-gradient(130% 55% at 50% 0%, color-mix(in oklab, var(--track-color) 60%, transparent), transparent 75%),
+      var(--color-ink-900);
+  }
+
+  /* 5.5 Barra de progresso do player (input range estilizado) -------------- */
+  .seek {
+    --progress: 0%;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 9999px;
+    background: linear-gradient(to right, #fff 0 var(--progress), rgb(255 255 255 / 0.2) var(--progress) 100%);
+    cursor: pointer;
+  }
+
+  .seek::-webkit-slider-thumb {
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 9999px;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgb(255 255 255 / 0.18);
+    transition: transform 0.2s;
+  }
+
+  .seek::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border: 0;
+    border-radius: 9999px;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgb(255 255 255 / 0.18);
+  }
+
+  .seek:hover::-webkit-slider-thumb,
+  .seek:focus-visible::-webkit-slider-thumb {
+    transform: scale(1.25);
+  }
+
+  /* 5.6 Visualizador de frequências (barras geradas pelo player.js) -------- */
+  .visualizer {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 2rem;
+  }
+
+  .visualizer > span {
+    flex: 1;
+    height: 100%;
+    border-radius: 2px;
+    background: linear-gradient(to top, var(--color-violet-400), var(--color-brand-400));
+    transform-origin: bottom;
+    transform: scaleY(var(--rest, 0.2));
+    opacity: 0.85;
+  }
+
+  /* Sem Web Audio disponível: animação CSS simulada */
+  .is-playing:not(.has-audio-graph) .visualizer > span {
+    animation: eq-bounce 0.8s ease-in-out infinite;
+    animation-delay: calc(var(--i, 0) * -73ms);
+  }
+
+  /* 5.7 Estado "carregando" do botão de play ------------------------------- */
+  .is-buffering [data-player-toggle] > span {
+    opacity: 0;
+  }
+
+  .is-buffering [data-player-toggle]::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 9999px;
+    border: 3px solid currentColor;
+    border-right-color: transparent;
+    animation: spin 0.8s linear infinite;
+  }
+
+  /* 5.8 Letras sincronizadas (efeito karaokê) ------------------------------ */
+  .lyric-line {
+    animation: lyric-highlight 7.5s ease-in-out infinite;
+    animation-delay: calc(var(--line, 0) * 2.5s);
+    color: rgb(157 150 187 / 0.45);
+  }
+
+  @keyframes lyric-highlight {
+    0%, 36%, 100% { color: rgb(157 150 187 / 0.45); }
+    6%, 30% { color: var(--color-mist-50); }
+  }
+
+  /* 5.9 Menu mobile: animação ao abrir ------------------------------------- */
+  #mobile-menu:not([hidden]) {
+    animation: menu-in 0.25s ease-out;
+  }
+
+  @keyframes menu-in {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  /* 5.10 FAQ: abertura suave do <details> (navegadores compatíveis) -------- */
+  @supports (interpolate-size: allow-keywords) {
+    .faq-item {
+      interpolate-size: allow-keywords;
+    }
+
+    .faq-item::details-content {
+      block-size: 0;
+      overflow: hidden;
+      transition: block-size 0.35s ease, content-visibility 0.35s allow-discrete;
+    }
+
+    .faq-item[open]::details-content {
+      block-size: auto;
+    }
+  }
+
+  /* 5.11 Textura sutil de pontos no fundo --------------------------------- */
+  .bg-dots {
+    background-image: radial-gradient(rgb(255 255 255 / 0.07) 1px, transparent 1px);
+    background-size: 22px 22px;
+    mask-image: radial-gradient(ellipse at center, #000 20%, transparent 70%);
+  }
+}
+
+/* Propriedade customizada tipada (CSS Houdini) — permite ANIMAR a cor de
+   destaque da faixa atual, o que variáveis comuns não fazem.               */
+@property --track-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f97316;
+}
+
+
+/* 6. ACESSIBILIDADE: MOVIMENTO REDUZIDO ===================================== */
+/* Quem ativa "reduzir movimento" no sistema operacional não vê animações. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .js .reveal:not(.is-visible) {
+    opacity: 1;
+  }
+}

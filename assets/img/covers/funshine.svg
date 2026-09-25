@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <title>Funshine</title>
+  <rect width="400" height="400" fill="#ff3ea5"/>
+  <g fill="#1e0b3b" opacity=".35">
+    <circle cx="36" cy="36" r="4"/><circle cx="64" cy="36" r="4"/><circle cx="92" cy="36" r="4"/>
+    <circle cx="36" cy="64" r="4"/><circle cx="64" cy="64" r="4"/><circle cx="92" cy="64" r="4"/>
+    <circle cx="36" cy="92" r="4"/><circle cx="64" cy="92" r="4"/><circle cx="92" cy="92" r="4"/>
+  </g>
+  <circle cx="276" cy="132" r="104" fill="#ffd166"/>
+  <g fill="#1e0b3b">
+    <circle cx="246" cy="118" r="9"/>
+    <circle cx="306" cy="118" r="9"/>
+  </g>
+  <path d="M236 156q40 36 80 0" fill="none" stroke="#1e0b3b" stroke-width="10" stroke-linecap="round"/>
+  <path d="M0 400V236a164 164 0 0 1 164 164Z" fill="#22d3ee"/>
+  <path d="M28 290q32-44 64 0t64 0t64 0t64 0t64 0t64 0" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="330" cy="330" r="34" fill="none" stroke="#1e0b3b" stroke-width="10"/>
+  <path d="M190 350l18-30 18 30z" fill="#ffd166"/>
+</svg>

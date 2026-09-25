@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <title>Meditating Beat</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0891b2"/>
+      <stop offset=".55" stop-color="#155e75"/>
+      <stop offset="1" stop-color="#0b1b33"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#ecfeff"/>
+      <stop offset=".7" stop-color="#a5f3fc"/>
+      <stop offset="1" stop-color="#67e8f9"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg)"/>
+  <circle cx="200" cy="148" r="92" fill="#a5f3fc" opacity=".12"/>
+  <circle cx="200" cy="148" r="64" fill="url(#glow)"/>
+  <g fill="none" stroke="#67e8f9" stroke-width="6" stroke-linecap="round">
+    <path d="M-10 250C40 220 80 220 130 250S220 280 270 250 360 220 410 250" stroke-opacity=".95"/>
+    <path d="M-10 282C40 252 80 252 130 282S220 312 270 282 360 252 410 282" stroke-opacity=".65"/>
+    <path d="M-10 314C40 284 80 284 130 314S220 344 270 314 360 284 410 314" stroke-opacity=".4"/>
+    <path d="M-10 346C40 316 80 316 130 346S220 376 270 346 360 316 410 346" stroke-opacity=".22"/>
+  </g>
+</svg>

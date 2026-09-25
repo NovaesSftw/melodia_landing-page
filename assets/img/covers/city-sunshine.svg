@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <title>City Sunshine</title>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e0b3b"/>
+      <stop offset=".5" stop-color="#9d1a78"/>
+      <stop offset=".82" stop-color="#ff6a3d"/>
+      <stop offset="1" stop-color="#ffb347"/>
+    </linearGradient>
+    <linearGradient id="sun" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff3a6"/>
+      <stop offset=".55" stop-color="#ffb13b"/>
+      <stop offset="1" stop-color="#ff4f9a"/>
+    </linearGradient>
+    <mask id="cuts">
+      <rect width="400" height="400" fill="#fff"/>
+      <rect y="214" width="400" height="5" fill="#000"/>
+      <rect y="232" width="400" height="7" fill="#000"/>
+      <rect y="252" width="400" height="9" fill="#000"/>
+      <rect y="274" width="400" height="11" fill="#000"/>
+    </mask>
+  </defs>
+  <rect width="400" height="400" fill="url(#sky)"/>
+  <g fill="#fff" opacity=".75">
+    <circle cx="48" cy="52" r="1.8"/>
+    <circle cx="120" cy="88" r="1.3"/>
+    <circle cx="318" cy="46" r="2"/>
+    <circle cx="356" cy="118" r="1.3"/>
+    <circle cx="232" cy="30" r="1.2"/>
+    <circle cx="80" cy="150" r="1.1"/>
+  </g>
+  <circle cx="200" cy="222" r="118" fill="url(#sun)" mask="url(#cuts)"/>
+  <path fill="#14062a" d="M0 400V300H26V262H48V300H62V240H92V300H104V270H128V226H154V300H170V250H190V224H198V250H212V300H230V262H256V300H270V236H298V300H310V266H332V300H348V278H374V300H400V400Z"/>
+  <g fill="#ffb347" opacity=".6">
+    <rect x="68" y="250" width="5" height="7" rx="1"/>
+    <rect x="80" y="266" width="5" height="7" rx="1"/>
+    <rect x="134" y="238" width="5" height="7" rx="1"/>
+    <rect x="144" y="256" width="5" height="7" rx="1"/>
+    <rect x="238" y="274" width="5" height="7" rx="1"/>
+    <rect x="276" y="248" width="5" height="7" rx="1"/>
+    <rect x="288" y="266" width="5" height="7" rx="1"/>
+    <rect x="318" y="278" width="5" height="7" rx="1"/>
+  </g>
+  <rect y="300" width="400" height="100" fill="#14062a"/>
+  <g stroke="#ff4f9a" stroke-opacity=".35" stroke-width="2">
+    <path d="M0 330H400M0 356H400M0 386H400"/>
+    <path d="M200 300L40 400M200 300L120 400M200 300V400M200 300L280 400M200 300L360 400"/>
+  </g>
+</svg>
