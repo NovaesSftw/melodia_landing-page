@@ -16,7 +16,7 @@ Landing page do app de músicas **Melodia**, desenvolvida para o **Check-Point 0
 ![Google Fonts](https://img.shields.io/badge/Google_Fonts-4285F4?logo=googlefonts&logoColor=white)
 ![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-222222?logo=githubpages&logoColor=white)
 
-**🔗 Acesse o site:** https://novaessftw.github.io/melodia_landing-page/
+**Acesse o site:** https://novaessftw.github.io/melodia_landing-page/
 <sub>Repositório: https://github.com/NovaesSftw/melodia_landing-page</sub>
 
 <img src="docs/preview-desktop.jpg" width="760" alt="Prévia da landing page do Melodia no computador">
@@ -85,7 +85,7 @@ Funcionalidades altera o som em tempo real com a Web Audio API.
 | Áudios sem copyright | 4 faixas em domínio público do acervo FreePD | `assets/audio/` |
 | Biblioteca JavaScript (opcional) | Optamos por APIs nativas do navegador (IntersectionObserver, Web Audio e Media Session), sem dependências | `assets/js/` |
 | Publicação no GitHub Pages | Site estático pronto para deploy, sem etapa de build no servidor | ver [Deploy](#deploy-no-github-pages) |
-| README | Este arquivo 🙂 | `README.md` |
+| README | Este arquivo | `README.md` |
 
 ---
 
@@ -256,16 +256,16 @@ A partir daí, o `form.js` envia os dados com `fetch()` e os e-mails chegam no p
 
 ## Testes realizados
 
-- ✅ **Responsividade** em 390px (celular), 768px (tablet), 1280px e 1440px (desktop), sem rolagem horizontal.
-- ✅ **Menu fixo:** transparente no topo, com fundo translúcido e desfoque ao rolar.
-- ✅ **Menu mobile:** abre e fecha pelo botão, pela tecla Esc e ao clicar num link.
-- ✅ **Player:** tocar/pausar, anterior/próxima, aleatório, repetir, curtir e barra de progresso.
-- ✅ **Equalizador:** presets alteram as barras e o som; visualizador reage à música.
-- ✅ **Mini player:** aparece ao rolar com a música tocando, pausa e fecha.
-- ✅ **Formulário:** erros por campo, e-mail inválido, envio com sucesso e e-mail repetido.
-- ✅ **FAQ:** abre uma pergunta por vez.
-- ✅ **Acessibilidade:** navegação por teclado, foco visível, `aria-*`, textos alternativos e suporte a "reduzir movimento".
-- ✅ **Console** sem erros e todos os arquivos carregando.
+- **Responsividade** em 390px (celular), 768px (tablet), 1280px e 1440px (desktop), sem rolagem horizontal.
+- **Menu fixo:** transparente no topo, com fundo translúcido e desfoque ao rolar.
+- **Menu mobile:** abre e fecha pelo botão, pela tecla Esc e ao clicar num link.
+- **Player:** tocar/pausar, anterior/próxima, aleatório, repetir, curtir e barra de progresso.
+- **Equalizador:** presets alteram as barras e o som; visualizador reage à música.
+- **Mini player:** aparece ao rolar com a música tocando, pausa e fecha.
+- **Formulário:** erros por campo, e-mail inválido, envio com sucesso e e-mail repetido.
+- **FAQ:** abre uma pergunta por vez.
+- **Acessibilidade:** navegação por teclado, foco visível, `aria-*`, textos alternativos e suporte a "reduzir movimento".
+- **Console** sem erros e todos os arquivos carregando.
 
 ---
 
